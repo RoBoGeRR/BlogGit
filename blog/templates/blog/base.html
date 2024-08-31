@@ -1,0 +1,28 @@
+{% load static %}
+{% load blog_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="{%static 'css/blog.css'%}" rel="stylesheet">
+</head>
+<body>
+    <div id = "content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <div id="sidebar">
+        {% block sidebar %}
+        <h2>My blog</h2>
+        <p>
+            This is my blog.
+            I've written {% total_posts %} posts so far.
+            Such as:
+            <br> {% posts_names as post_names %}
+            {{ post_names|safe}}
+        </p>
+
+        {% endblock sidebar %}
+    </div>
+</body>
+</html>
